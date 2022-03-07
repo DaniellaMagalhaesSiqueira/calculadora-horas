@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="502.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora.calc.SubtrairController">
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="582.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Funções">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#irCalcularHoras" text="Calcular Horas Extras" />
+                  <MenuItem mnemonicParsing="false" onAction="#irSomarHoras" text="Somar Horas" />
+                  <MenuItem mnemonicParsing="false" onAction="#irSubtrairHoras" text="Subtrair Horas" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Label layoutX="221.0" layoutY="40.0" prefHeight="43.0" prefWidth="167.0" text="Subtrair Horas" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="203.0" layoutY="115.0" prefHeight="136.0" prefWidth="202.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.5999755859375" minWidth="10.0" prefWidth="65.3999755859375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.5999755859375" minWidth="7.000024414062494" prefWidth="67.00002441406251" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.79996337890626" minWidth="0.0" prefWidth="20.39996337890625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0000030517578" minWidth="10.0" prefWidth="66.00003662109376" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="29.60001220703125" minHeight="10.0" prefHeight="21.60001220703125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="47.19998779296874" minHeight="10.0" prefHeight="47.19998779296874" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <TextField fx:id="horas1" GridPane.columnIndex="1" />
+            <TextField fx:id="min1" prefHeight="26.0" prefWidth="52.0" GridPane.columnIndex="3" />
+            <TextField fx:id="horas2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="min2" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label text=":" textFill="WHITE" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="7.0" />
+               </padding>
+            </Label>
+            <Label text=":" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="7.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="totalH" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="totalM" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label text=":" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="7.0" />
+               </padding>
+            </Label>
+            <Label text="Horas:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label text="Horas:" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label text="Total:" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label text="-" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <Button layoutX="247.0" layoutY="422.0" mnemonicParsing="false" onAction="#clicarLimpar" text="Limpar">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Separator layoutX="99.0" layoutY="383.0" prefHeight="10.0" prefWidth="383.0" />
+      <Button layoutX="242.0" layoutY="293.0" mnemonicParsing="false" onAction="#clicarCalcular" prefHeight="23.0" prefWidth="98.0" text="Calcular">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="413.0" layoutY="177.0" text="=" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets left="7.0" />
+         </padding>
+      </Label>
+   </children>
+</AnchorPane>
