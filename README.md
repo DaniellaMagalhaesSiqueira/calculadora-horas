@@ -11,10 +11,5 @@
 Tecnologias:
 - Optou-se por fazer o aplicativo em Java 8 para facilitar a compatibilidade em várias máquinas
 - Foi utilizada a biblioteca JavaFX
-<<<<<<< HEAD
-- ícone do relógio foi retirado do [site](https://www.flaticon.com/free-icons/clock)
 - arquivo executável encontra-se na raiz do projeto como calculadora_horas.jar.
-=======
 - ícone do relógio foi retirado do [site freepik.](https://www.flaticon.com/free-icons/clock)
-
->>>>>>> 5dbf6ab50b27f47d0c12ae440589cb8a2d1f208b
