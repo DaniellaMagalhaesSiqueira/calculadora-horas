@@ -22,14 +22,14 @@
         <menus>
           <Menu mnemonicParsing="false" text="Funções">
             <items>
-              <MenuItem mnemonicParsing="false"  text="Calcular Horas Extras" />
+              <MenuItem mnemonicParsing="false" text="Calcular Horas Extras" />
                   <MenuItem mnemonicParsing="false" onAction="#irSomarHoras" text="Somar Horas" />
                   <MenuItem mnemonicParsing="false" onAction="#irSomarHoras" text="Somar Horas" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="139.0" layoutY="38.0" prefHeight="43.0" prefWidth="330.0" text="Calculadora de Horas Extras">
+      <Label layoutX="139.0" layoutY="38.0" prefHeight="43.0" prefWidth="330.0" text="Calculadora de Horas Extras" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -46,12 +46,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Hora de Entrada: ">
+            <Label text="Hora de Entrada: " textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Hora de Saída: " GridPane.rowIndex="1">
+            <Label text="Hora de Saída: " textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
@@ -60,7 +60,7 @@
             <TextField fx:id="minutoEntrada" prefHeight="26.0" prefWidth="52.0" GridPane.columnIndex="3" />
             <TextField fx:id="horaSaida" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="minutoSaida" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label text=":" GridPane.columnIndex="2">
+            <Label text=":" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -68,7 +68,7 @@
                   <Insets left="7.0" />
                </padding>
             </Label>
-            <Label text=":" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label text=":" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -84,7 +84,7 @@
          </font></Button>
       <HBox layoutX="65.0" layoutY="339.0" prefHeight="30.0" prefWidth="238.0">
          <children>
-            <Label text="Total:">
+            <Label text="Total:" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -106,11 +106,11 @@
       </HBox>
       <Button layoutX="247.0" layoutY="474.0" mnemonicParsing="false" onAction="#clicarLimpar" prefHeight="43.0" prefWidth="114.0" text="Limpar">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font></Button>
       <HBox layoutX="139.0" layoutY="90.0" prefHeight="27.0" prefWidth="264.0">
          <children>
-            <Label text="Horas Regulares Diárias:">
+            <Label text="Horas Regulares Diárias:" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -122,14 +122,14 @@
             </TextField>
          </children>
       </HBox>
-      <Label layoutX="139.0" layoutY="117.0" text="opcional" textFill="#f41919">
+      <Label layoutX="139.0" layoutY="117.0" text="opcional" textFill="#d9d9d9">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <HBox layoutX="65.0" layoutY="380.0" prefHeight="30.0" prefWidth="238.0">
          <children>
-            <Label text="Horas Extras:">
+            <Label text="Horas Extras:" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -149,7 +149,7 @@
             </Button>
          </children>
       </HBox>
-      <Label layoutX="65.0" layoutY="416.0" text="apenas se marcado horas regulares" textFill="#f23131">
+      <Label layoutX="65.0" layoutY="416.0" text="apenas se marcado horas regulares" textFill="#d9d9d9">
          <font>
             <Font size="14.0" />
          </font>
@@ -157,7 +157,7 @@
       <HBox layoutX="42.0" layoutY="275.0" prefHeight="40.0" prefWidth="524.0">
          <children>
             <Separator prefHeight="3.0" prefWidth="199.0" />
-            <Label prefHeight="20.0" prefWidth="63.0" text="Resultado" textFill="#8e8b8b">
+            <Label prefHeight="20.0" prefWidth="63.0" text="Resultado" textFill="#d9d9d9">
                <font>
                   <Font size="14.0" />
                </font>
@@ -174,7 +174,7 @@
       <HBox layoutX="325.0" layoutY="339.0" prefHeight="30.0" prefWidth="154.0">
          <children>
             <TextField fx:id="somaHT" />
-            <Label text=":">
+            <Label text=":" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -188,7 +188,7 @@
       <HBox layoutX="325.0" layoutY="380.0" prefHeight="30.0" prefWidth="154.0">
          <children>
             <TextField fx:id="somaHE" />
-            <Label text=":">
+            <Label text=":" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -199,7 +199,7 @@
             <TextField fx:id="somaME" />
          </children>
       </HBox>
-      <Label layoutX="325.0" layoutY="315.0" text="Somatório:">
+      <Label layoutX="325.0" layoutY="315.0" text="Somatório:" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -207,6 +207,6 @@
       <Button layoutX="497.0" layoutY="339.0" mnemonicParsing="false" onAction="#limparSomaTotal" text="Limpar" />
       <Button layoutX="497.0" layoutY="382.0" mnemonicParsing="false" onAction="#limparSomaExtra" text="Limpar" />
       <Label layoutX="416.0" layoutY="72.0" />
-      <RadioButton fx:id="manterH" layoutX="212.0" layoutY="118.0" mnemonicParsing="false" text="Manter horas diárias ao clicar em limpar" />
+      <RadioButton fx:id="manterH" layoutX="212.0" layoutY="118.0" mnemonicParsing="false" text="Manter horas diárias ao clicar em limpar" textFill="WHITE" />
    </children>
 </AnchorPane>
