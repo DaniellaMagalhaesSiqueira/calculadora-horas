@@ -11,5 +11,5 @@
 Tecnologias:
 - Optou-se por fazer o aplicativo em Java 8 para facilitar a compatibilidade em várias máquinas
 - Foi utilizada a biblioteca JavaFX
-- ícone do relógio foi retirado do ![site]("https://www.flaticon.com/free-icons/clock").
+- ícone do relógio foi retirado do [site]("https://www.flaticon.com/free-icons/clock")
 
