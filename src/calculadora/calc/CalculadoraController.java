@@ -58,14 +58,14 @@ public class CalculadoraController {
 
 	@FXML
 	void calcular(ActionEvent event) {
-		if(Util.validar(horaEntrada.getText(), "hora")) {			
+		if (Util.validar(horaEntrada.getText(), "hora")) {
 			int horas = Integer.parseInt(horaEntrada.getText().isEmpty() ? "00" : horaEntrada.getText());
-			if(Util.validar(minutoEntrada.getText(), "minuto")) {		
+			if (Util.validar(minutoEntrada.getText(), "minuto")) {
 				int minutos = Integer.parseInt(minutoEntrada.getText().isEmpty() ? "00" : minutoEntrada.getText());
 				LocalTime horaEntrada = LocalTime.of(horas, minutos);
-				if(Util.validar(horaSaida.getText(), "hora")) {
+				if (Util.validar(horaSaida.getText(), "hora")) {
 					horas = Integer.parseInt(horaSaida.getText().isEmpty() ? "00" : horaSaida.getText());
-					if(Util.validar(minutoSaida.getText(), "minuto")) {						
+					if (Util.validar(minutoSaida.getText(), "minuto")) {
 						minutos = Integer.parseInt(minutoSaida.getText().isEmpty() ? "00" : minutoSaida.getText());
 						LocalTime horaSaida = LocalTime.of(horas, minutos);
 						Duration total = Duration.between(horaEntrada, horaSaida);
@@ -73,14 +73,20 @@ public class CalculadoraController {
 							total = total.minus(Duration.ofHours(1));
 						}
 						Long horasl = total.toHours();
+
 						Duration m = total.minusHours(total.toHours());
 						Long minutosl = m.toMinutes();
 						String resultado = Util.maisZero(horasl + "") + " : " + Util.maisZero(minutosl + "");
 						resultadoHoras.setText(resultado);
+						// Horas Extras
 						if (!horasRegulares.getText().equals("")) {
-							int h = Integer.parseInt(horasRegulares.getText());
-							horasl -= h;
-							resultadoExtras.setText(Util.maisZero(horasl + "") + " : " + Util.maisZero(minutosl + ""));
+							int hr = Integer.parseInt(horasRegulares.getText());
+							Duration h = Duration.ofHours(hr);
+							total = total.minus(h);
+							if (total.isNegative()) {
+							}
+							resultadoExtras.setText(Util.converteDuration(total));
+
 						}
 					}
 				}
@@ -112,53 +118,52 @@ public class CalculadoraController {
 
 	@FXML
 	void somaExtra(ActionEvent event) {
-
-		// Total de Horas Extras Calculadas
 		if (!horasRegulares.getText().isEmpty()) {
-
+			
 			String total[] = resultadoExtras.getText().split(":");
-			Long horas = Long.parseLong(total[0].trim());
-			Long minutos = Long.parseLong(total[1].trim());
+			int horas = Util.retornaInteiro(total[0].trim());
+			int minutos = Util.retornaInteiro(total[1].trim());
 			Duration tot = Duration.ofHours(horas);
-			tot = tot.plus(Duration.ofMinutes(minutos));
-
-			// somando total do somatório anterior se estiver com valores
-			int somaHora = Integer.parseInt(somaHE.getText().isEmpty() ? "00" : somaHE.getText());
-			int somaMin = Integer.parseInt(somaME.getText().isEmpty() ? "00" : somaME.getText());
-
-			tot = tot.plus(Duration.ofHours(somaHora));
-			tot = tot.plus(Duration.ofMinutes(somaMin));
-
-			// Preenchendo o campo Somatório
-			somaHE.setText(Util.maisZero(tot.toHours() + ""));
-			Long hs = tot.toHours();
-			tot = tot.minusHours(hs);
-			somaME.setText(Util.maisZero(tot.toMinutes() + ""));
+			tot = tot.plusMinutes(minutos);
+			
+			if (somaHE.getText().isEmpty()) {
+				somaHE.setText(total[0]);
+				somaME.setText(total[1]);
+				return;
+			} else {
+				int hs = Util.retornaInteiro(somaHE.getText().trim());
+				int ms = Util.retornaInteiro(somaME.getText().trim());
+				Duration soma = Duration.ofHours(hs);
+				soma = soma.plusMinutes(ms);
+				tot = tot.plus(soma);
+				String[] r = Util.converteDuration(tot).split(":");
+				
+				somaHE.setText(r[0]);
+				somaME.setText(r[1]);
+				return;
+			}
+			
 		}
 	}
 
 	@FXML
 	void somaTotal(ActionEvent event) {
 
-		// Total de Horas Calculadas
 		String total[] = resultadoHoras.getText().split(":");
 		Long horas = Long.parseLong(total[0].trim());
 		Long minutos = Long.parseLong(total[1].trim());
 		Duration tot = Duration.ofHours(horas);
-		tot = tot.plus(Duration.ofMinutes(minutos));
+		tot = tot.plusMinutes(minutos);
 
-		// somando total do somatório anterior se estiver com valores
-		int somaHora = Integer.parseInt(somaHT.getText().isEmpty() ? "0" : somaHT.getText());
-		int somaMin = Integer.parseInt(somaMT.getText().isEmpty() ? "0" : somaMT.getText());
+		int somaHora = Integer.parseInt(somaHT.getText().isEmpty() ? "00" : somaHT.getText().trim());
+		int somaMin = Integer.parseInt(somaMT.getText().isEmpty() ? "00" : somaMT.getText().trim());
+		Duration soma = Duration.ofHours(somaHora);
+		soma = soma.plusMinutes(somaMin);
 
-		tot = tot.plus(Duration.ofHours(somaHora));
-		tot = tot.plus(Duration.ofMinutes(somaMin));
-
-		// Preenchendo o campo Somatório
-		somaHT.setText(Util.maisZero(tot.toHours() + ""));
-		Long hs = tot.toHours();
-		tot = tot.minusHours(hs);
-		somaMT.setText(Util.maisZero(tot.toMinutes() + ""));
+		Duration res = tot.plus(soma);
+		String[] r = Util.converteDuration(res).split(":");
+		somaHT.setText(r[0]);
+		somaMT.setText(r[1]);
 
 	}
 
@@ -193,6 +198,5 @@ public class CalculadoraController {
 		}
 
 	}
-
 
 }

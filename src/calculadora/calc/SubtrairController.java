@@ -40,8 +40,9 @@ public class SubtrairController {
 	    	int m2 = retornaInteiro(Util.validar(min2.getText(), "minuto") ? min2.getText() : "00");
 	    	Duration d = Duration.ofHours(h1);
 	    	d = d.plusMinutes(m1);
-	    	d = d.minusHours(h2);
-	    	d = d.minusMinutes(m2);
+	    	Duration d2 = Duration.ofHours(h2);
+	    	d2 = d2.plusMinutes(m2);
+	    	d = d.minus(d2);
 	    	totalH.setText(Util.maisZero(d.toHours() + ""));
 	    	d = d.minusHours(d.toHours());
 	    	totalM.setText(Util.maisZero(d.toMinutes() + ""));
